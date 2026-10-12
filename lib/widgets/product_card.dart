@@ -30,7 +30,7 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // ── ইমোজি এরিয়া ──
+            // ── ইমোজি এরিয়া (Hero animation সহ) ──
             Stack(
               children: [
                 Container(
@@ -44,9 +44,12 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                   alignment: Alignment.center,
-                  child: Text(
-                    product.emoji,
-                    style: const TextStyle(fontSize: 52),
+                  child: Hero(
+                    tag: 'product-${product.id}',
+                    child: Text(
+                      product.emoji,
+                      style: const TextStyle(fontSize: 52),
+                    ),
                   ),
                 ),
                 if (product.discountPercent != null)
