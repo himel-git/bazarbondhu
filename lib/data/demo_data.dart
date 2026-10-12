@@ -3,70 +3,89 @@ import '../models/category.dart';
 import '../models/product.dart';
 
 /// ⚠️ সতর্কতা: এই ফাইলের সব দাম **ডেমো** — বাস্তব বাজারদর নয়।
-/// এগুলো শুধু অ্যাপ ডেভেলপমেন্ট ও UI টেস্টের জন্য।
+/// শুধু অ্যাপ চালু ও UI পরীক্ষার জন্য।
 class DemoData {
   DemoData._();
 
-  static final DateTime _updated = DateTime(2026, 1, 1);
+  static final DateTime _updated = DateTime(2026, 1, 13);
 
+  // ─────────────────────────────────────────
+  // ক্যাটাগরি (৮টি)
+  // ─────────────────────────────────────────
   static const List<GroceryCategory> categories = [
     GroceryCategory(
       id: 'vegetables',
       nameBn: 'সবজি',
       emoji: '🥬',
       color: Color(0xFFE8F5E9),
+      itemCount: 8,
     ),
     GroceryCategory(
       id: 'fish',
       nameBn: 'মাছ',
       emoji: '🐟',
       color: Color(0xFFE3F2FD),
+      itemCount: 4,
     ),
     GroceryCategory(
       id: 'meat',
       nameBn: 'মাংস',
       emoji: '🍖',
       color: Color(0xFFFFEBEE),
+      itemCount: 4,
     ),
     GroceryCategory(
       id: 'rice_grain',
       nameBn: 'চাল ও দানাদার',
       emoji: '🍚',
       color: Color(0xFFFFF8E1),
+      itemCount: 5,
     ),
     GroceryCategory(
       id: 'oil_spice',
       nameBn: 'তেল ও মসলা',
       emoji: '🌶️',
       color: Color(0xFFFBE9E7),
+      itemCount: 5,
     ),
     GroceryCategory(
       id: 'egg_dairy',
       nameBn: 'ডিম ও দুধ',
       emoji: '🥚',
       color: Color(0xFFFFFDE7),
+      itemCount: 4,
     ),
     GroceryCategory(
       id: 'fruits',
       nameBn: 'ফল',
       emoji: '🍎',
       color: Color(0xFFFCE4EC),
+      itemCount: 5,
     ),
     GroceryCategory(
       id: 'other',
       nameBn: 'অন্যান্য',
       emoji: '🛒',
       color: Color(0xFFF1F8E9),
+      itemCount: 5,
     ),
   ];
 
+  // ─────────────────────────────────────────
+  // প্রোডাক্ট (৪০টি)
+  // ─────────────────────────────────────────
   static List<Product> products() => [
+        // সবজি (৮)
         Product(
           id: 'alu',
           nameBn: 'আলু',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 45,
+          priceBdt: 45,
+          oldPriceBdt: 55,
+          discountPercent: 18,
+          emoji: '🥔',
+          isPopular: true,
           updatedAt: _updated,
         ),
         Product(
@@ -74,7 +93,11 @@ class DemoData {
           nameBn: 'পেঁয়াজ (দেশি)',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 110,
+          priceBdt: 110,
+          oldPriceBdt: 130,
+          discountPercent: 15,
+          emoji: '🧅',
+          isPopular: true,
           updatedAt: _updated,
         ),
         Product(
@@ -82,7 +105,8 @@ class DemoData {
           nameBn: 'রসুন',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 180,
+          priceBdt: 180,
+          emoji: '🧄',
           updatedAt: _updated,
         ),
         Product(
@@ -90,7 +114,8 @@ class DemoData {
           nameBn: 'আদা',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 220,
+          priceBdt: 220,
+          emoji: '🫚',
           updatedAt: _updated,
         ),
         Product(
@@ -98,7 +123,8 @@ class DemoData {
           nameBn: 'বেগুন',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 60,
+          priceBdt: 60,
+          emoji: '🍆',
           updatedAt: _updated,
         ),
         Product(
@@ -106,15 +132,43 @@ class DemoData {
           nameBn: 'টমেটো',
           categoryId: 'vegetables',
           unit: 'কেজি',
-          demoPriceBdt: 80,
+          priceBdt: 80,
+          oldPriceBdt: 95,
+          discountPercent: 16,
+          emoji: '🍅',
+          isNew: true,
           updatedAt: _updated,
         ),
+        Product(
+          id: 'dhone_pata',
+          nameBn: 'ধনেপাতা',
+          categoryId: 'vegetables',
+          unit: 'আঁটি',
+          priceBdt: 20,
+          emoji: '🌿',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'kumra',
+          nameBn: 'কুমড়া',
+          categoryId: 'vegetables',
+          unit: 'কেজি',
+          priceBdt: 40,
+          emoji: '🎃',
+          updatedAt: _updated,
+        ),
+
+        // মাছ (৪)
         Product(
           id: 'rui',
           nameBn: 'রুই মাছ',
           categoryId: 'fish',
           unit: 'কেজি',
-          demoPriceBdt: 380,
+          priceBdt: 380,
+          oldPriceBdt: 420,
+          discountPercent: 10,
+          emoji: '🐟',
+          isPopular: true,
           updatedAt: _updated,
         ),
         Product(
@@ -122,7 +176,8 @@ class DemoData {
           nameBn: 'তেলাপিয়া',
           categoryId: 'fish',
           unit: 'কেজি',
-          demoPriceBdt: 200,
+          priceBdt: 200,
+          emoji: '🐠',
           updatedAt: _updated,
         ),
         Product(
@@ -130,15 +185,32 @@ class DemoData {
           nameBn: 'ইলিশ',
           categoryId: 'fish',
           unit: 'কেজি',
-          demoPriceBdt: 1500,
+          priceBdt: 1500,
+          emoji: '🐟',
           updatedAt: _updated,
         ),
+        Product(
+          id: 'pangash',
+          nameBn: 'পাঙ্গাশ',
+          categoryId: 'fish',
+          unit: 'কেজি',
+          priceBdt: 160,
+          emoji: '🐟',
+          isNew: true,
+          updatedAt: _updated,
+        ),
+
+        // মাংস (৪)
         Product(
           id: 'chicken_broiler',
           nameBn: 'মুরগি (ব্রয়লার)',
           categoryId: 'meat',
           unit: 'কেজি',
-          demoPriceBdt: 180,
+          priceBdt: 180,
+          oldPriceBdt: 200,
+          discountPercent: 10,
+          emoji: '🍗',
+          isPopular: true,
           updatedAt: _updated,
         ),
         Product(
@@ -146,15 +218,38 @@ class DemoData {
           nameBn: 'গরুর মাংস',
           categoryId: 'meat',
           unit: 'কেজি',
-          demoPriceBdt: 750,
+          priceBdt: 750,
+          emoji: '🥩',
           updatedAt: _updated,
         ),
+        Product(
+          id: 'mutton',
+          nameBn: 'খাসির মাংস',
+          categoryId: 'meat',
+          unit: 'কেজি',
+          priceBdt: 1100,
+          emoji: '🍖',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'chicken_desi',
+          nameBn: 'দেশি মুরগি',
+          categoryId: 'meat',
+          unit: 'কেজি',
+          priceBdt: 550,
+          emoji: '🐔',
+          updatedAt: _updated,
+        ),
+
+        // চাল ও দানাদার (৫)
         Product(
           id: 'rice_miniket',
           nameBn: 'মিনিকেট চাল',
           categoryId: 'rice_grain',
           unit: 'কেজি',
-          demoPriceBdt: 70,
+          priceBdt: 70,
+          emoji: '🍚',
+          isPopular: true,
           updatedAt: _updated,
         ),
         Product(
@@ -162,7 +257,19 @@ class DemoData {
           nameBn: 'নাজিরশাইল চাল',
           categoryId: 'rice_grain',
           unit: 'কেজি',
-          demoPriceBdt: 80,
+          priceBdt: 80,
+          emoji: '🍚',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'rice_br28',
+          nameBn: 'বিআর-২৮ চাল',
+          categoryId: 'rice_grain',
+          unit: 'কেজি',
+          priceBdt: 55,
+          oldPriceBdt: 62,
+          discountPercent: 11,
+          emoji: '🍚',
           updatedAt: _updated,
         ),
         Product(
@@ -170,15 +277,40 @@ class DemoData {
           nameBn: 'মসুর ডাল',
           categoryId: 'rice_grain',
           unit: 'কেজি',
-          demoPriceBdt: 130,
+          priceBdt: 130,
+          emoji: '🫘',
           updatedAt: _updated,
         ),
+        Product(
+          id: 'dal_mug',
+          nameBn: 'মুগ ডাল',
+          categoryId: 'rice_grain',
+          unit: 'কেজি',
+          priceBdt: 160,
+          emoji: '🫘',
+          updatedAt: _updated,
+        ),
+
+        // তেল ও মসলা (৫)
         Product(
           id: 'oil_soybean',
           nameBn: 'সয়াবিন তেল',
           categoryId: 'oil_spice',
           unit: 'লিটার',
-          demoPriceBdt: 170,
+          priceBdt: 170,
+          oldPriceBdt: 185,
+          discountPercent: 8,
+          emoji: '🫗',
+          isPopular: true,
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'oil_mustard',
+          nameBn: 'সরিষার তেল',
+          categoryId: 'oil_spice',
+          unit: 'লিটার',
+          priceBdt: 220,
+          emoji: '🫗',
           updatedAt: _updated,
         ),
         Product(
@@ -186,7 +318,8 @@ class DemoData {
           nameBn: 'হলুদ গুঁড়া',
           categoryId: 'oil_spice',
           unit: 'কেজি',
-          demoPriceBdt: 320,
+          priceBdt: 320,
+          emoji: '🟡',
           updatedAt: _updated,
         ),
         Product(
@@ -194,15 +327,40 @@ class DemoData {
           nameBn: 'মরিচ গুঁড়া',
           categoryId: 'oil_spice',
           unit: 'কেজি',
-          demoPriceBdt: 380,
+          priceBdt: 380,
+          emoji: '🌶️',
           updatedAt: _updated,
         ),
+        Product(
+          id: 'jeera',
+          nameBn: 'জিরা',
+          categoryId: 'oil_spice',
+          unit: 'কেজি',
+          priceBdt: 700,
+          emoji: '🟤',
+          updatedAt: _updated,
+        ),
+
+        // ডিম ও দুধ (৪)
         Product(
           id: 'egg',
           nameBn: 'ডিম (ফার্ম)',
           categoryId: 'egg_dairy',
           unit: 'ডজন',
-          demoPriceBdt: 130,
+          priceBdt: 130,
+          oldPriceBdt: 145,
+          discountPercent: 10,
+          emoji: '🥚',
+          isPopular: true,
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'egg_desi',
+          nameBn: 'দেশি ডিম',
+          categoryId: 'egg_dairy',
+          unit: 'ডজন',
+          priceBdt: 180,
+          emoji: '🥚',
           updatedAt: _updated,
         ),
         Product(
@@ -210,16 +368,130 @@ class DemoData {
           nameBn: 'গরুর দুধ',
           categoryId: 'egg_dairy',
           unit: 'লিটার',
-          demoPriceBdt: 90,
+          priceBdt: 90,
+          emoji: '🥛',
           updatedAt: _updated,
         ),
+        Product(
+          id: 'doi',
+          nameBn: 'দই',
+          categoryId: 'egg_dairy',
+          unit: 'কেজি',
+          priceBdt: 220,
+          emoji: '🍮',
+          isNew: true,
+          updatedAt: _updated,
+        ),
+
+        // ফল (৫)
         Product(
           id: 'kola',
           nameBn: 'কলা (সাগর)',
           categoryId: 'fruits',
           unit: 'ডজন',
-          demoPriceBdt: 60,
+          priceBdt: 60,
+          emoji: '🍌',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'aam',
+          nameBn: 'আম (হিমসাগর)',
+          categoryId: 'fruits',
+          unit: 'কেজি',
+          priceBdt: 120,
+          emoji: '🥭',
+          isPopular: true,
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'apple',
+          nameBn: 'আপেল',
+          categoryId: 'fruits',
+          unit: 'কেজি',
+          priceBdt: 280,
+          oldPriceBdt: 320,
+          discountPercent: 12,
+          emoji: '🍎',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'komola',
+          nameBn: 'কমলা',
+          categoryId: 'fruits',
+          unit: 'কেজি',
+          priceBdt: 220,
+          emoji: '🍊',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'angur',
+          nameBn: 'আঙুর',
+          categoryId: 'fruits',
+          unit: 'কেজি',
+          priceBdt: 350,
+          emoji: '🍇',
+          updatedAt: _updated,
+        ),
+
+        // অন্যান্য (৫)
+        Product(
+          id: 'cha_pata',
+          nameBn: 'চা পাতা',
+          categoryId: 'other',
+          unit: '২৫০ গ্রাম',
+          priceBdt: 120,
+          emoji: '🍵',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'chinigura',
+          nameBn: 'চিনি',
+          categoryId: 'other',
+          unit: 'কেজি',
+          priceBdt: 140,
+          oldPriceBdt: 155,
+          discountPercent: 10,
+          emoji: '🍬',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'lobon',
+          nameBn: 'লবণ',
+          categoryId: 'other',
+          unit: 'কেজি',
+          priceBdt: 35,
+          emoji: '🧂',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'saban',
+          nameBn: 'সাবান',
+          categoryId: 'other',
+          unit: 'পিস',
+          priceBdt: 45,
+          emoji: '🧼',
+          updatedAt: _updated,
+        ),
+        Product(
+          id: 'shampoo',
+          nameBn: 'শ্যাম্পু',
+          categoryId: 'other',
+          unit: 'বোতল',
+          priceBdt: 220,
+          emoji: '🧴',
           updatedAt: _updated,
         ),
       ];
+
+  /// Popular প্রোডাক্ট (Home এর "Popular" সেকশনের জন্য)
+  static List<Product> popularProducts() =>
+      products().where((p) => p.isPopular).toList();
+
+  /// Discounted প্রোডাক্ট (Home এর "Best Offers" এর জন্য)
+  static List<Product> discountedProducts() =>
+      products().where((p) => p.hasDiscount).toList();
+
+  /// Category অনুযায়ী প্রোডাক্ট
+  static List<Product> byCategory(String categoryId) =>
+      products().where((p) => p.categoryId == categoryId).toList();
 }

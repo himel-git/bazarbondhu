@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
+import 'package:provider/provider.dart';
+
+import 'providers/cart_provider.dart';
+import 'providers/shopping_list_provider.dart';
+import 'screens/splash_screen.dart';
 import 'theme/app_theme.dart';
 
-/// BazarBondhu (বাজারবন্ধু) — বাংলাদেশের বাজারদর ও দাম তুলনার অ্যাপ।
-///
-/// প্রাথমিক বাজার: কারওয়ান বাজার, ঢাকা।
-/// সব দাম এই মুহূর্তে ডেমো — বাস্তব নয়।
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const BazarBondhuApp());
 }
 
@@ -15,11 +16,18 @@ class BazarBondhuApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'বাজারবন্ধু',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.light(),
-      home: const HomeScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartProvider()..load()),
+        ChangeNotifierProvider(
+            create: (_) => ShoppingListProvider()..load()),
+      ],
+      child: MaterialApp(
+        title: 'বাজারবন্ধু',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light(),
+        home: const SplashScreen(),
+      ),
     );
   }
 }

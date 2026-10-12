@@ -31,3 +31,6 @@ Thumbs.db
 # আমাদের নিজস্ব ব্যাকআপ
 *.broken-*
 *.bak-*
+lib.old-*
+pubspec.yaml.bak-*
+pubspec.yaml.broken-*

@@ -1,7 +1,7 @@
 name: bazarbondhu
-description: "BazarBondhu (বাজারবন্ধু) - বাংলাদেশের বাজারদর ও দাম তুলনার অ্যাপ"
+description: "BazarBondhu (বাজারবন্ধু) - বাংলাদেশের বাজারদর ও ডেলিভারি অ্যাপ"
 publish_to: 'none'
-version: 0.1.0+1
+version: 0.2.0+2
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
@@ -9,9 +9,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # UI ও অ্যানিমেশন
   cupertino_icons: ^1.0.6
-  shared_preferences: ^2.2.2
-  provider: ^6.1.1
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+
+  # State management
+  provider: ^6.1.2
+
+  # Local storage
+  shared_preferences: ^2.2.3
+
+  # Utilities
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

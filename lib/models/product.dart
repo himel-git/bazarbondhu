@@ -1,14 +1,19 @@
 /// একটি প্রোডাক্ট (যেমন: আলু, পেঁয়াজ)।
 ///
-/// গুরুত্বপূর্ণ: এই অ্যাপে সব দাম **ডেমো ডেটা** — বাস্তব বাজারদর নয়।
+/// গুরুত্বপূর্ণ: সব দাম **ডেমো** — বাস্তব বাজারদর নয়।
 /// তাই `isDemo = true` রাখা হয়েছে এবং UI-তে "ডেমো" লেবেল দেখানো হবে।
 class Product {
   final String id;
   final String nameBn;
   final String categoryId;
-  final String unit;         // যেমন: "কেজি", "পিস", "ডজন"
-  final double demoPriceBdt; // ডেমো দাম, BDT
-  final bool isDemo;         // সব ডেমো ডেটার জন্য true
+  final String unit;
+  final double priceBdt;
+  final double? oldPriceBdt;
+  final bool isDemo;
+  final String emoji;
+  final bool isPopular;
+  final bool isNew;
+  final int? discountPercent;
   final DateTime updatedAt;
 
   const Product({
@@ -16,27 +21,21 @@ class Product {
     required this.nameBn,
     required this.categoryId,
     required this.unit,
-    required this.demoPriceBdt,
+    required this.priceBdt,
+    this.oldPriceBdt,
     this.isDemo = true,
+    required this.emoji,
+    this.isPopular = false,
+    this.isNew = false,
+    this.discountPercent,
     required this.updatedAt,
   });
-}
 
-/// একটি প্রোডাক্টের দামের হিস্ট্রি (পরে ভেরিফায়েড রিপোর্ট থেকে আসবে)।
-class PriceEntry {
-  final String productId;
-  final String marketId;       // যেমন: "karwan_bazar"
-  final double priceBdt;
-  final String unit;
-  final DateTime reportedAt;
-  final bool isVerified;       // true হলে বাস্তব রিপোর্ট, false হলে ডেমো
+  /// ছাড় আছে কি?
+  bool get hasDiscount =>
+      oldPriceBdt != null && oldPriceBdt! > priceBdt;
 
-  const PriceEntry({
-    required this.productId,
-    required this.marketId,
-    required this.priceBdt,
-    required this.unit,
-    required this.reportedAt,
-    this.isVerified = false,
-  });
+  /// ছাড়ের পরিমাণ (টাকায়)
+  double get savings =>
+      hasDiscount ? (oldPriceBdt! - priceBdt) : 0;
 }
