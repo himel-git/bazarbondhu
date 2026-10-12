@@ -1,4 +1,4 @@
-name: Build BazarBondhu APK (arm64)
+name: Build BazarBondhu APK
 
 on:
   push:
@@ -37,19 +37,19 @@ jobs:
       - name: Flutter analyze
         run: flutter analyze --no-fatal-infos || true
 
-      - name: Build debug APK (arm64 only)
-        run: flutter build apk --debug --target-platform android-arm64
+      - name: Build release APK (arm64)
+        run: flutter build apk --release --target-platform android-arm64
 
       - name: Verify APK exists
         run: |
           ls -lh build/app/outputs/flutter-apk/
-          test -f build/app/outputs/flutter-apk/app-debug.apk
+          test -f build/app/outputs/flutter-apk/app-release.apk
 
       - name: Upload APK only
         uses: actions/upload-artifact@v4
         with:
-          name: bazarbondhu-arm64-apk
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          name: bazarbondhu-arm64-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
           if-no-files-found: error
           compression-level: 9
           retention-days: 30
