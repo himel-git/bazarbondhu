@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../providers/cart_provider.dart';
 import '../../theme/app_theme.dart';
+import '../checkout/checkout_screen.dart';
 import '../product/product_detail_screen.dart';
 import 'widgets/cart_item_tile.dart';
 import 'widgets/cart_summary.dart';
@@ -71,11 +72,10 @@ class CartScreen extends StatelessWidget {
                   delivery: cart.deliveryCharge,
                   total: cart.total,
                   onCheckout: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                            'চেকআউট স্ক্রিন — Phase 8 এ আসবে'),
-                        behavior: SnackBarBehavior.floating,
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const CheckoutScreen(),
                       ),
                     );
                   },

@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'providers/cart_provider.dart';
 import 'providers/shopping_list_provider.dart';
+import 'providers/order_provider.dart';
+import 'providers/address_provider.dart';
 import 'screens/splash_screen.dart';
 import 'theme/app_theme.dart';
 
@@ -21,6 +23,9 @@ class BazarBondhuApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => CartProvider()..load()),
         ChangeNotifierProvider(
             create: (_) => ShoppingListProvider()..load()),
+        ChangeNotifierProvider(create: (_) => OrderProvider()..load()),
+        ChangeNotifierProvider(
+            create: (_) => AddressProvider()..load()),
       ],
       child: MaterialApp(
         title: 'বাজারবন্ধু',
